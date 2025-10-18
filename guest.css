@@ -1,0 +1,429 @@
+/* guest.css - Mobile-first invitation styles (keeps original flavor) */
+:root{
+  --bg-dark: #0f1115;
+  --bg-light: #f6f7f8;
+  --accent: #7b61ff;
+  --muted: #9aa0a6;
+  --card-bg: rgba(255,255,255,0.03);
+  --glass: rgba(0,0,0,0.35);
+  font-family: "Josefin Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* basic resets */
+html,body{height:100%;margin:0;background:var(--bg-dark);color:#fff}
+a{color:inherit}
+.container-fluid{padding:0}
+
+/* dev badge */
+.dev-badge{
+  display:none; position:fixed;left:8px;top:8px;z-index:2000;background:#ffdd57;color:#000;padding:.25rem .5rem;border-radius:6px;font-weight:700;font-size:.8rem;
+}
+
+/* left hero area (desktop) */
+.bg-hero{background:#000;color:#fff;position:relative}
+.hero-slides{height:100%;width:100%;position:absolute;inset:0;overflow:hidden}
+.hero-slides .slide{position:absolute;inset:0;background-position:center;background-size:cover;transition:opacity 1s;opacity:0}
+.hero-slides .slide:nth-child(1){opacity:1}
+.hero-content{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);max-width:380px;background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.55));padding:1.5rem;border-radius:12px}
+
+/* hero text */
+.display-name{font-size:2.25rem;margin:0}
+.event-date{margin:0;color:var(--muted);font-size:1rem}
+
+/* small devices */
+.title{font-size:1.25rem;margin-bottom:.25rem}
+.name{font-size:1.5rem;margin:0}
+.lead{font-size:0.95rem;color:var(--muted)}
+
+/* avatar cropping */
+.img-center-crop{width:7.5rem;height:7.5rem;object-fit:cover;display:block;margin-left:auto;margin-right:auto}
+.celebrant-photo{width:120px;height:120px;object-fit:cover}
+
+/* section styles */
+.section-title{font-weight:700;margin-bottom:.5rem}
+.bg-white-black{background:var(--card-bg);border-radius:12px}
+
+/* countdown look */
+.count-number{font-size:1.25rem;font-weight:700}
+.countdown-box{background:var(--card-bg)}
+
+/* small decorations */
+.mouse-scroll{height:36px;display:flex;justify-content:center;align-items:center}
+.scroll-indicator{width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,0.04);border:2px solid rgba(255,255,255,0.06)}
+
+/* === Scroll Down Mouse Icon === */
+.mouse-scroll {
+  position: relative;
+  width: 28px;
+  height: 48px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  margin: 0 auto 6px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.mouse-scroll::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: scrollDot 1.6s infinite ease-in-out;
+}
+
+@keyframes scrollDot {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+  40% {
+    opacity: 1;
+    transform: translate(-50%, 10px);
+  }
+  80% {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* "Scroll Down" text style */
+.scroll-text {
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* === Glass Gallery Style === */
+#gallery {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 76px;
+      overflow: hidden;
+      padding: .5rem;
+    }
+
+    #gallery .glass-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    #gallery .carousel-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    #gallery img {
+      object-fit: cover;
+      height: 46vh;
+      filter: brightness(0.92) saturate(1.05);
+      transition: transform 1.6s ease, filter 1.2s ease;
+    }
+
+    #gallery .carousel-item.active img {
+      transform: scale(1.03);
+      filter: brightness(1.06) saturate(1.08);
+    }
+
+    .carousel-fade .carousel-item {
+      transition: opacity 1s ease-in-out;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: drop-shadow(0 0 8px rgba(0,0,0,0.7));
+    }
+
+    /* small responsive tweak */
+    @media(min-width: 992px){
+      #gallery img { height: 60vh; }
+    }
+
+
+/* bottom nav */
+.navbar .nav-link{padding:.5rem 0;text-align:center;font-size:.8rem}
+.navbar .tiny{font-size:.67rem}
+
+/* form inputs */
+.form-control, .form-select{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);color:#fff}
+
+/* modal image tweak */
+.modal-body img{border-radius:12px}
+
+/* responsive tweaks */
+@media(min-width:768px){
+  .img-center-crop{width:10rem;height:10rem}
+  .display-name{font-size:2.75rem}
+}
+
+/* utility */
+.text-muted{color:var(--muted)!important}
+
+
+
+
+/* ==== Glass gallery fixes added by assistant ==== */
+/* remove small left/right padding so carousel sits flush */
+#gallery .container-fluid { padding-left: 0 !important; padding-right: 0 !important; }
+
+/* glass overlay */
+#gallery { position: relative; }
+#gallery .glass-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 0.75rem;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  mix-blend-mode: overlay;
+  transition: background 300ms ease;
+  z-index: 3;
+}
+
+/* carousel sizing and image fit */
+#carouselGallery { position: relative; z-index: 2; }
+#carouselGallery .carousel-inner { height: 320px; }
+@media (min-width: 768px) { #carouselGallery .carousel-inner { height: 420px; } }
+@media (min-width: 1200px) { #carouselGallery .carousel-inner { height: 100%; min-height: 520px; } }
+
+#carouselGallery .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.75rem;
+  display: block;
+}
+
+/* controls above glass overlay */
+#carouselGallery .carousel-control-prev, #carouselGallery .carousel-control-next {
+  width: 4rem;
+  top: 50%; transform: translateY(-50%);
+  opacity: 0.95;
+  z-index: 5;
+}
+
+/* slight hover effect */
+#gallery:hover .glass-overlay { background: rgba(255,255,255,0.08); }
+
+
+/* ==== Polished invitation / glass-card theme tweaks ==== */
+/* Hero panel: floating frosted card on the left column */
+.bg-hero { background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.4)); position: relative; }
+.bg-hero .hero-content {
+  position: absolute;
+  right: 2.5rem;
+  top: 2.5rem;
+  width: calc(40% - 3rem);
+  max-width: 380px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border-radius: 18px;
+  padding: 1.25rem 1.5rem;
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  z-index: 6;
+  text-align: center;
+}
+
+/* Make hero texts more elegant */
+.display-name { font-size: 2.1rem; font-weight:700; margin:0; letter-spacing:0.6px; }
+.event-date { font-size: 0.95rem; color: var(--muted); margin-top:6px; }
+
+/* Wave separator: make it sit above sections like a cutout */
+.svg-wrapper { margin-top: -2px; }
+.color-theme-svg { display:block; width:100%; height:64px; color:var(--bg-light); opacity:0.95; transform: translateY(6px); }
+
+/* Section cards — floating glass panels with soft borders */
+section.p-3.bg-white-black, #about, #gallery, #home {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  border-radius: 14px;
+  padding: 1.25rem;
+  margin: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+}
+
+/* Make gallery header float with glow like the reference */
+#gallery .section-title {
+  font-size: 1.25rem;
+  background: rgba(0,0,0,0.35);
+  display: inline-block;
+  padding: .5rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5), 0 0 18px rgba(123,97,255,0.06);
+  border: 1px solid rgba(255,255,255,0.03);
+  color: #fff;
+}
+
+/* small circular avatar effect */
+.photo-thumb { width:84px; height:84px; border-radius:50%; background-size:cover; background-position:center; box-shadow: 0 6px 18px rgba(0,0,0,0.6); border: 3px solid rgba(255,255,255,0.04); }
+
+/* Bottom nav: floating rounded pill with blur */
+#navbar-menu { position: sticky; bottom: 12px; margin: 0 12px 12px; border-radius: 14px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); background: rgba(0,0,0,0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.03); z-index: 8; }
+
+#navbar-menu .nav-link { color: #ddd; padding-top: .6rem; padding-bottom: .6rem; }
+
+/* Subtle glow on section titles */
+.section-title { text-shadow: 0 2px 12px rgba(0,0,0,0.6); }
+
+/* Make scroll hint more subtle and centered */
+.mouse-scroll { height: 48px; display:flex; align-items:center; justify-content:center; }
+.scroll-indicator { width: 36px; height: 36px; border-radius: 999px; border: 2px solid rgba(255,255,255,0.08); display:block; position:relative; }
+
+/* improve modal image look */
+#modalImage .modal-content { background: transparent; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.7); }
+#modalImage .modal-body img { border-radius: 12px; }
+
+/* make buttons slightly brighter */
+.btn-outline-auto { border-color: rgba(255,255,255,0.06); color: #fff; }
+.btn-outline-auto:hover { background: rgba(255,255,255,0.03); color: #fff; }
+
+/* small responsive tweaks */
+@media (max-width: 767px) {
+  .bg-hero .hero-content { position: static; width: auto; margin: 0 0 1rem 0; box-shadow: none; border-radius: 10px; }
+  section.p-3 { margin: 0.5rem; }
+  #carouselGallery .carousel-inner { height: 280px; }
+}
+
+
+
+/* Slim chevron arrows overlay (assistant) */
+.chev-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 64px;
+  height: 160px;
+  background: transparent;
+  border: none;
+  z-index: 2500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+}
+.chev-arrow span {
+  display: block;
+  width: 34px;
+  height: 34px;
+  border-left: 4px solid rgba(255,255,255,0.95);
+  border-bottom: 4px solid rgba(255,255,255,0.95);
+  transform: rotate(45deg);
+  box-sizing: border-box;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+  opacity: 0.95;
+}
+.chev-arrow-left { left: 12px; transform: translateY(-50%) rotate(180deg); }
+.chev-arrow-right { right: 12px; }
+.chev-arrow:hover span { transform: rotate(45deg) scale(1.05); opacity: 1; border-color: rgba(255,255,255,1); }
+@media (max-width: 640px) {
+  .chev-arrow { width: 48px; height: 120px; }
+  .chev-arrow span { width: 28px; height: 28px; border-left-width:3px; border-bottom-width:3px; }
+}
+#modalImage .modal-body { position: relative; overflow: hidden; }
+#modalImage .chev-arrow, #modalImage .modal-arrow, #modal-prev, #modal-next { z-index:2500 !important; pointer-events:auto; }
+#modalImage .modal-counter { position: absolute; right: 14px; bottom: 14px; z-index:2000; background: rgba(0,0,0,0.4); color: #fff; padding: 6px 10px; border-radius: 999px; font-size: 0.9rem; box-shadow: 0 10px 30px rgba(0,0,0,0.35); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+
+
+/* Responsive gallery thumbnails (assistant) */
+
+/* Responsive gallery thumbnails and modal images */
+
+/* Make carousel/main gallery images scale to available width while preserving aspect ratio */
+.carousel-inner .carousel-item img,
+#gallery img,
+#carouselGallery .carousel-item img,
+img.img-center-crop,
+.img-center-crop {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  display: block;
+  max-width: 100% !important;
+}
+
+/* Limit large modal image height to viewport so it doesn't overflow on small screens */
+#modal-image-el {
+  max-height: calc(100vh - 120px);
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Make thumbnail column adapt: use fluid width and consistent aspect ratio */
+.photo-thumb, .carousel-item .rounded-4 {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
+
+/* For the small gallery preview on the right (sidebar), ensure thumbnails shrink to fit */
+#gallery .photo-thumb, #gallery img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* If you have rounded thumbnails inside cards, make them responsive */
+.rounded-circle.photo-thumb {
+  width: 72px;
+  height: 72px;
+  max-width: 20vw;
+  max-height: 20vw;
+}
+
+/* Make carousel controls and images responsive */
+.carousel, .carousel-inner, .carousel-item { width:100%; }
+
+/* Adjust layout for small screens: stack and reduce padding */
+@media (max-width: 767px) {
+  .carousel-inner .carousel-item img { max-height: 45vh; object-fit: cover; }
+  #modal-image-el { max-height: calc(100vh - 100px); }
+  .rounded-circle.photo-thumb { width:56px; height:56px; }
+  .chev-arrow { width:48px; height:120px; }
+}
+
+/* Ensure the gallery tile fits the container and centers the image */
+.gallery-tile {
+  width:100%;
+  height: auto;
+  display:block;
+  overflow:hidden;
+}
